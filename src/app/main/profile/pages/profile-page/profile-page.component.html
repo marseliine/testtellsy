@@ -1,0 +1,72 @@
+<form
+  [formGroup]="profile"
+  *ngIf="(userDataService.currentData | async)?.length"
+  class="profile"
+  (ngSubmit)="onSubmit()"
+>
+  <label class="container-login__header">Profile</label>
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" readonly />
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="firstName" type="text" />
+    <mat-error
+      *ngIf="profile.controls['firstName'].errors"
+      class="error-password"
+    >
+      {{
+        profile.controls["firstName"].value
+          ? "The firstName is invalid"
+          : "Please enter a first name"
+      }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="lastName" type="text" />
+    <mat-error
+      *ngIf="profile.controls['lastName'].errors"
+      class="error-password"
+    >
+      {{
+        profile.controls["lastName"].value
+          ? "The last name is invalid"
+          : "Please enter a last name"
+      }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Phone</mat-label>
+    <input matInput formControlName="phone" />
+    <mat-error *ngIf="profile.controls['phone'].errors" class="error-password">
+      {{
+        profile.controls["phone"].value
+          ? "The phone is invalid"
+          : "Please enter a phone"
+      }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Web Site</mat-label>
+    <input matInput formControlName="webSite" type="text" />
+    <mat-error
+      *ngIf="profile.controls['webSite'].errors"
+      class="error-password"
+    >
+      {{
+        profile.controls["webSite"].value
+          ? "The website is invalid"
+          : "Please enter a website"
+      }}
+    </mat-error>
+  </mat-form-field>
+
+  <div class="container-btn">
+    <button type="submit" class="container-login__submit">Update</button>
+  </div>
+</form>

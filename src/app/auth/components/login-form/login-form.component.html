@@ -1,0 +1,59 @@
+<form class="container-login" [formGroup]="logInForm" (ngSubmit)="onSubmit()">
+  <label class="container-login__header">Login</label>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Your login</mat-label>
+    <input
+      matInput
+      placeholder="kate"
+      formControlName="login"
+      type="text"
+      required
+    />
+    <mat-error
+      *ngIf="logInForm.controls['login'].errors"
+      class="error-password"
+    >
+      {{
+        logInForm.controls["login"].value
+          ? "The login is invalid"
+          : "Please enter a login"
+      }}
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Your password</mat-label>
+    <input
+      matInput
+      [type]="hide ? 'password' : 'text'"
+      formControlName="password"
+      placeholder="kate"
+      required
+    />
+
+    <button
+      mat-icon-button
+      matSuffix
+      (click)="hide = !hide"
+      [attr.aria-label]="'Hide password'"
+      [attr.aria-pressed]="hide"
+    >
+      <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+    </button>
+    <mat-error
+      *ngIf="logInForm.controls['password'].errors"
+      class="error-password"
+    >
+      {{
+        logInForm.controls["password"].value
+          ? "Password should have minimum 8 characters, at least: \n 1 uppercase letter, \n 1 lowercase letter, \n 1 number, \n 1 special character, e.g., ! @ # ? ]"
+          : "Please enter a password"
+      }}
+    </mat-error>
+  </mat-form-field>
+  <div class="error-login-password" *ngIf="message">{{ message }}</div>
+  <div class="container-btn">
+    <button type="submit" class="container-login__submit">Login</button>
+  </div>
+</form>

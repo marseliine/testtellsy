@@ -1,0 +1,49 @@
+<header class="header" *ngIf="data$ | async as data">
+  <div class="header__container" *ngIf="data.length">
+    <a routerLink="profile" class="link">
+      <mat-icon
+        aria-hidden="false"
+        color="accent"
+        aria-label="Example home icon"
+        fontIcon="account_circle"
+        class="account_circle"
+      ></mat-icon></a
+    >
+    <div class="info__user">
+      <div class="first_name">{{ data[0].firstName }}</div>
+      <div class="last_name">{{ data[0].lastName }}</div>
+    </div>
+
+    <div class="message__logout">
+      <div class="message__container">
+        <div
+          [class]="(userDataService.currentType | async) ? 'error' : 'message'"
+          *ngIf="userDataService.currentMessage | async as message"
+        >
+          {{ message }}
+        </div>
+
+        <div></div>
+
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="close"
+          *ngIf="userDataService.currentType | async"
+          class="close"
+          (click)="closeMessage()"
+        ></mat-icon>
+      </div>
+
+      <a class="link link-logout" (click)="authService.logout()">
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontIcon="logout"
+          class="logout"
+        ></mat-icon>
+        <span>Logout</span></a
+      >
+    </div>
+  </div>
+</header>

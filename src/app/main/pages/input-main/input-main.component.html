@@ -1,0 +1,43 @@
+<div class="experts">
+    <h2>Список экспертов по оценке и руководителей</h2>
+    <div class="expert__inputs">
+      <div class="expert__input-container">
+        <span>ID</span>
+        <div class="custom-select">
+          <select id="id" name="id" class="expert__inputs-id">
+            <option value="">Выберите вариант</option>
+            <option *ngFor="let item of tableData" [value]="item.id">{{ item.id }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="expert__input-container">
+        <span>ФИО</span>
+        <div class="custom-select">
+          <select id="name" name="name" class="expert__inputs-name">
+            <option value="">Выберите вариант</option>
+            <option *ngFor="let item of tableData" [value]="item.name">{{ item.name }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="expert__input-container">
+        <span>Должность</span>
+        <div class="custom-select">
+          <select id="profession" name="profession" class="expert__inputs-profession">
+            <option value="">Выберите вариант</option>
+            <option *ngFor="let item of tableData" [value]="item.profession">{{ item.profession }}</option>
+          </select>
+        </div>
+      </div>
+      <div class="expert__input-container">
+        <span>Почта(логин)</span>
+        <div class="custom-select">
+          <select id="email" name="email" class="expert__inputs-email">
+            <option value="">Выберите вариант</option>
+            <option *ngFor="let item of tableData" [value]="item.email">{{ item.email }}</option>
+          </select>
+        </div>
+      </div>
+      <button class="expert__inputs-button">Применить фильтры</button>
+    </div>
+  </div>
+  

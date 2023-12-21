@@ -1,0 +1,47 @@
+<div class="background-overlay"></div>
+<div *ngIf="childModalVisible === false" class="custom-modal">
+  <span class="custom-close-button" (click)="closeModal.emit()">&#10006;</span>
+  <span class="title">Добавление данных о экспертах по оценке и руководителей</span>
+  <div class="form-content">
+    <div class="form-item">
+      <label>Дата регистрации</label>
+      <div class="form-control">
+        <input type="date" />
+      </div>
+    </div>
+    <div class="form-item">
+      <label>ФИО</label>
+      <div class="form-control">
+        <input placeholder="Иванов Иван Иванович" type="text"/>
+      </div>
+    </div>
+    <div class="form-item">
+      <label>Должность</label>
+      <div class="form-control">
+        <input class="ant-select ant-select-lg" placeholder="Введите должность"/>
+      </div>
+    </div>
+    <div class="form-item">
+      <label>Почта (Логин)</label>
+      <div class="form-control">
+        <input placeholder="pochta@mail.ru" type="text">
+      </div>
+    </div>
+    <div class="form-item">
+      <label>Пароль</label>
+      <div class="form-control">
+        <input type="password" />
+      </div>
+    </div>
+    <div class="form-item">
+      <label>Телефон, привязанный к мессенджеру</label>
+      <div class="form-control">
+        <input class="ant-select ant-select-lg" placeholder="+7 928 555 55 55"/>
+      </div>
+    </div>
+      <div class="form-button">
+        <button type="button" class="ant-btn ant-btn-primary" (click)="saveData()">Сохранить</button>
+    </div>
+  </div>
+</div>
+

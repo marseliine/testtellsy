@@ -1,0 +1,35 @@
+<div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>ID</th>
+          <th>Дата регистрации</th>
+          <th>ФИО</th>
+          <th>Должность</th>
+          <th>Почта (логин)</th>
+          <th>Пароль</th>
+          <th>Телефон</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of tableData" [class.selected]="item.selected">
+          <td><input type="checkbox" [checked]="item.selected" (change)="selectRow(item)"/></td>
+          <td>{{ item.id }}</td>
+          <td>{{ item.date }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.profession }}</td>
+          <td class="email">{{ item.email }}</td>
+          <td>{{ hidePassword(item.passward) }}</td>
+          <td>{{ hidePhoneNumber(item.telephone) }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="button-container" >
+      <button class="delete" (click)="deleteSelectedRows()">Удалить</button>
+      <button class="add" (click)="openModal()">Добавить</button>
+    </div>  
+    <app-add-person  *ngIf="modalVisible"  [childModalVisible]="modalVisible"></app-add-person>
+  </div>
+  
+  

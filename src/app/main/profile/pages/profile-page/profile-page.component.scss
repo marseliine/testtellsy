@@ -1,0 +1,41 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 700px;
+  height: auto;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 70px;
+  font-size: 14px;
+}
+
+.container-login__header {
+  color: #9932CC;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.container-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.container-login__submit {
+  height: 50px;
+  width: 200px;
+  background:  #BA55D3;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(255, 255, 255);
+  border: 0;
+  cursor: pointer;
+}
+
+.container-login__submit:active {
+  background:  #BA55D3;
+}
